@@ -60,6 +60,7 @@ public class Main {
                 Gender.FEMALE, BigDecimal.valueOf(350000));
 //
 //
+        ///
         Order order1 = new Order("cement", 5, customer2);
         Order order2 = new Order("cement", 2, customer1);
         Order order3 = new Order("cement", 2, customer1);
