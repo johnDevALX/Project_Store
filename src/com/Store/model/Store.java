@@ -1,5 +1,9 @@
 package com.Store.model;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
@@ -16,14 +20,6 @@ public class Store {
         return store;
     }
 
-    static {
-        productList.addAll(List.of(
-                new Product("banana", 111, 100, 150),
-                new Product("cement", 131, 5000, 300),
-                new Product("biscuit", 161, 50, 500),
-                new Product("peanut", 121, 100, 150)
-        ));
-    }
 
     public BigDecimal getStoreBal() {
         return storeBal;

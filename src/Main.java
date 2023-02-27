@@ -10,7 +10,9 @@ public class Main {
     public static Scanner scanner = new Scanner(System.in);
     public static void main(String[] args) {
         ManagerService managerService = new ManagerService();
-
+        ProductCSVReader productCSVReader = new ProductCSVReader("src/com/Store/model/Product_csv.csv");
+        productCSVReader.readProductCsv();
+//
 //        System.out.print("Number Of Cashiers To Hire: ");
 //        int numToHire = scanner.nextInt();
 //        int i = 0;
@@ -56,8 +58,8 @@ public class Main {
         Customer customer2 = new Customer("Roy",
                 "Loy", 112,
                 Gender.FEMALE, BigDecimal.valueOf(350000));
-
-
+//
+//
         Order order1 = new Order("cement", 5, customer2);
         Order order2 = new Order("cement", 2, customer1);
         Order order3 = new Order("cement", 2, customer1);
@@ -78,15 +80,15 @@ public class Main {
 //        cashierService.addToCart(order4);
 //        cashierService.addToCart(order5);
 
-//        cashierService.sellProduct(customer1);
+        cashierService.sellProduct(customer1);
         cashierService.sellProduct(customer2);
         cashierService.sellProduct(customer1);
 //        cashierService.sellProduct(order5);
 //        cashierService.sellProduct(order6);
 //        cashierService.sellProduct(order7);
 //        cashierService.sellProduct(order8);
-        cashierService.printAllTransactionRecords();
-
+//        cashierService.printAllTransactionRecords();
+//
         System.out.println("===================###############################============");
         for (Product product : Store.productList){
             System.out.println(product);
