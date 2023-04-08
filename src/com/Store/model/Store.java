@@ -20,7 +20,6 @@ public class Store {
         return store;
     }
 
-
     public BigDecimal getStoreBal() {
         return storeBal;
     }

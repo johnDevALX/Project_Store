@@ -8,10 +8,56 @@ import java.util.Scanner;
 
 public class Main {
     public static Scanner scanner = new Scanner(System.in);
-    public static void main(String[] args) {
-        ManagerService managerService = new ManagerService();
+    public static void main(String[] args) throws InterruptedException {
+        CashierService cashierService = new CashierService();
         ProductCSVReader productCSVReader = new ProductCSVReader("src/com/Store/model/Product_csv.csv");
         productCSVReader.readProductCsv();
+        Customer customer1 = new Customer("ben", "loy", 11, Gender.MALE, new BigDecimal(350000));
+        Customer customer2 = new Customer("vin", "rat", 11, Gender.MALE, new BigDecimal(350000));
+        Order order2 = new Order("cement", 2, customer1);
+        Order order3 = new Order("cement", 2, customer1);
+        Order order1 = new Order("cement", 5, customer2);
+        cashierService.addToCart(order1);
+        cashierService.addToCart(order2);
+        cashierService.addToCart(order3);
+        cashierService.sellProduct(customer1);
+        cashierService.sellProduct(customer2);
+        System.out.println(customer2);
+        System.out.println(customer1);
+//        Runnable runnable = new Runnable() {
+//            @Override
+//            public void run() {
+//                Customer customer1 = new Customer("ben", "loy", 11, Gender.MALE, new BigDecimal(350000));
+//                Order order2 = new Order("cement", 2, customer1);
+//                Order order3 = new Order("cement", 2, customer1);
+//                cashierService.addToCart(order2);
+//                cashierService.addToCart(order3);
+//                cashierService.sellProduct(customer1);
+//                System.out.println(customer1);
+//
+//            }
+//        };
+//        Runnable runnable2 = new Runnable() {
+//            @Override
+//            public void run() {
+//                Customer customer2 = new Customer("vin", "rat", 11, Gender.MALE, new BigDecimal(350000));
+//                Order order1 = new Order("cement", 5, customer2);
+//                cashierService.addToCart(order1);
+//                cashierService.sellProduct(customer2);
+//                System.out.println(customer2);
+//
+//            }
+//        };
+
+//        Thread ben = new Thread(runnable, "ben-thread");
+//        Thread vin = new Thread(runnable2, "vin-thread");
+//
+//        vin.start();
+//        ben.start();
+        Applicant applicant = new Applicant("Festus", "Ben", 19.0, Gender.MALE, 1);
+        ManagerService managerService = new ManagerService();
+        managerService.hireACashier(applicant);
+        Manager.CASHIER_LIST.forEach(System.out::println);
 //
 //        System.out.print("Number Of Cashiers To Hire: ");
 //        int numToHire = scanner.nextInt();
@@ -51,19 +97,17 @@ public class Main {
 //        for (Cashier cashier : CASHIER_LIST){
 //            System.out.println(cashier);
 //        }
-        CashierService cashierService = new CashierService();
-        Customer customer1 = new Customer("Ben",
-                "Vin", 102,
-                Gender.MALE, BigDecimal.valueOf(26000));
-        Customer customer2 = new Customer("Roy",
-                "Loy", 112,
-                Gender.FEMALE, BigDecimal.valueOf(350000));
+
+//        Customer customer1 = new Customer("Ben",
+//                "Vin", 102,
+//                Gender.MALE, BigDecimal.valueOf(26000));
+//        Customer customer2 = new Customer("Roy",
+//                "Loy", 112,
+//                Gender.FEMALE, BigDecimal.valueOf(350000));
 //
 //
         ///
-        Order order1 = new Order("cement", 5, customer2);
-        Order order2 = new Order("cement", 2, customer1);
-        Order order3 = new Order("cement", 2, customer1);
+
 //        Order order2 = new Order("cement", 5, customer2);
 //        Order order3 = new Order("cementfcd", 5, customer2);
 //        Order order4 = new Order("biscuit", 50000, customer2);
@@ -74,16 +118,13 @@ public class Main {
 //        Order order8 = new Order("cement", 2, customer2);
 //        Order order1 = new Order("Banana", 20, customer1);
 
-        cashierService.addToCart(order1);
-        cashierService.addToCart(order2);
-        cashierService.addToCart(order3);
+
+
 //        cashierService.addToCart(order3);
 //        cashierService.addToCart(order4);
 //        cashierService.addToCart(order5);
 
-        cashierService.sellProduct(customer1);
-        cashierService.sellProduct(customer2);
-        cashierService.sellProduct(customer1);
+
 //        cashierService.sellProduct(order5);
 //        cashierService.sellProduct(order6);
 //        cashierService.sellProduct(order7);
@@ -103,8 +144,7 @@ public class Main {
 
         System.out.println("==========================================");
 
-        System.out.println(customer1);
-        System.out.println(customer2);
+
 
 
     }

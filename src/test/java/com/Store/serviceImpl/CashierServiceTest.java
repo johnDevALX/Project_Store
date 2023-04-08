@@ -31,7 +31,7 @@ class CashierServiceTest {
     @Test
     void sellProductUnSuccessful() {
         String expected = "Insufficient fund";
-        Customer customer = new Customer("Ben", "loy", 111, Gender.MALE, new BigDecimal(30));
+        Customer customer = new Customer("Ben", "loy", 111, Gender.MALE, new BigDecimal(0));
         Order order = new Order("banana", 50, customer);
         var c = cashierService.addToCart(order);
         var actual = cashierService.sellProduct(customer);
@@ -45,7 +45,7 @@ class CashierServiceTest {
 //        Product product = new Product("banana", 12, 150, 300);
         Order order = new Order("banana", 50, customer);
         Order order2 = new Order("banana", 20, customer);
-        Order order1 = new Order("cement", 50, customer);
+        Order order1 = new Order("cement", 5, customer);
         var c= cashierService.addToCart(order);
         var d= cashierService.addToCart(order1);
         var e= cashierService.addToCart(order2);

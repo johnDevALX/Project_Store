@@ -56,6 +56,8 @@ public class CashierService implements CashierInterface {
     }
 
     public List<Order> addToCart(Order order) {
+        ProductCSVReader productCSVReader = new ProductCSVReader("src/com/Store/model/Product_csv.csv");
+        productCSVReader.readProductCsv();
         if (Store.productList.contains(checkForProduct(Store.productList , order.getOrderName()))) {
             Product product = checkForProduct(Store.productList , order.getOrderName());
             if (order.getDesiredQuantity() < product.getQuantity()) {
@@ -64,7 +66,8 @@ public class CashierService implements CashierInterface {
                     Order dubOrder = checkForDubOrder(order.getCustomer().getCart(), order.getOrderName());
                     product.setQuantity(product.getQuantity() - order.getDesiredQuantity());
                     dubOrder.setDesiredQuantity(dubOrder.getDesiredQuantity() + order.getDesiredQuantity());
-                    System.out.println(order.getDesiredQuantity() + " More " + order.getOrderName() + " Added!!!!");
+                    System.out.println(order.getDesiredQuantity() + " More " + order.getOrderName() + " Added To " +
+                            order.getCustomer().getFirstName() + " Cart!!!");
                 }else {
                     order.getCustomer().getCart().add(order);
                     product.setQuantity(product.getQuantity() - order.getDesiredQuantity());

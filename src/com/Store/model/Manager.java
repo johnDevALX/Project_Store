@@ -9,6 +9,7 @@ public class Manager extends Person{
 
     public static List<Cashier> CASHIER_LIST = new ArrayList<>();
 
+
     public Manager(String firstName, String lastName, int id, Role role) {
 
         super(firstName, lastName, id, role);
